@@ -1,0 +1,12 @@
+CREATE TABLE service_orders (
+    id BIGSERIAL PRIMARY KEY,
+    quote_id BIGINT NOT NULL UNIQUE,
+    status VARCHAR(30) NOT NULL DEFAULT 'OPEN',
+    started_at TIMESTAMP,
+    finished_at TIMESTAMP,
+    notes TEXT,
+
+    CONSTRAINT fk_service_order_quote
+        FOREIGN KEY (quote_id)
+        REFERENCES quotes(id)
+);
