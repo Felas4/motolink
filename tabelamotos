@@ -1,0 +1,13 @@
+CREATE TABLE motorcycles (
+    id BIGSERIAL PRIMARY KEY,
+    user_id BIGINT NOT NULL,
+    brand VARCHAR(80) NOT NULL,
+    model VARCHAR(80) NOT NULL,
+    year INTEGER NOT NULL,
+    plate VARCHAR(10) UNIQUE,
+    mileage INTEGER DEFAULT 0,
+
+    CONSTRAINT fk_motorcycle_user
+        FOREIGN KEY (user_id)
+        REFERENCES users(id)
+);
