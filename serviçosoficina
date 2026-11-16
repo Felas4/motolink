@@ -1,0 +1,12 @@
+CREATE TABLE services (
+    id BIGSERIAL PRIMARY KEY,
+    workshop_id BIGINT NOT NULL,
+    name VARCHAR(150) NOT NULL,
+    description TEXT,
+    base_price NUMERIC(10,2),
+    estimated_duration_minutes INTEGER,
+
+    CONSTRAINT fk_service_workshop
+        FOREIGN KEY (workshop_id)
+        REFERENCES workshops(id)
+);
