@@ -1,0 +1,12 @@
+CREATE TABLE quotes (
+    id BIGSERIAL PRIMARY KEY,
+    appointment_id BIGINT NOT NULL,
+    total_amount NUMERIC(10,2) NOT NULL,
+    description TEXT,
+    status VARCHAR(30) NOT NULL DEFAULT 'PENDING',
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT fk_quote_appointment
+        FOREIGN KEY (appointment_id)
+        REFERENCES appointments(id)
+);
